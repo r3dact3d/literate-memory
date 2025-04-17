@@ -1,2 +1,2 @@
 ---
-controller_hostname: "{{ controller_host | default(groups['dev'][0]) }}"
+controller_hostname: "{{ controller_host | default(groups['local'][0]) }}"
