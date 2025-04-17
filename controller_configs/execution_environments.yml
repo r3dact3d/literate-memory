@@ -2,4 +2,6 @@
 controller_execution_environments:
   - name: "ee-aap-builder-stream"
     image: quay.io/brthomps/ee-aap-ee-builder:latest
+  - name: "terraform-ee"
+    image: docker.io/r3dact3d/terraform-ee:1.0.2
 ...
