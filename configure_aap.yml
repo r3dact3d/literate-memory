@@ -16,7 +16,6 @@
         ignore_unknown_extensions: True
         ignore_files:
           - credentials.yml
-          - execution_environments.yml
         extensions: ["yml"]
       tags:
         - always
