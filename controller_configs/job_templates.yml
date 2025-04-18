@@ -30,6 +30,9 @@ controller_templates:
     extra_vars: ''
     use_fact_cache: yes
   
+############################
+## Ansible Builder Stream ##
+############################
   - name: EE Streamer
     job_type: run
     inventory: Local Inventory
@@ -37,7 +40,10 @@ controller_templates:
     playbook: ee_builder.yml
     execution_environment: ee-aap-builder-stream
     instance_groups: ansible_builder
-    extra_vars: ''
+    extra_vars:
+      ee_registry_dest: docker.io/brthomps
+      ee_registry_username: r3dact3d
+      ee_registry_password: 
     labels: ansible_job
 
 ...
