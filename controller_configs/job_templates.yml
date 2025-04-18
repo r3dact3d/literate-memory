@@ -36,6 +36,8 @@ controller_templates:
     project: Ansible EE Builder Stream
     playbook: ee_builder.yml
     execution_environment: ee-aap-builder-stream
+    instance_groups: ansible_builder
     extra_vars: ''
+    labels: ansible_job
 
 ...
