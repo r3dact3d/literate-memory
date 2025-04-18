@@ -9,8 +9,8 @@ controller_templates:
     playbook: random-plays/getControllerStats.yml
     ask_variables_on_launch: true
     extra_vars:
-      controller_hostname:
-      controller_password:
+      - controller_hostname:
+      - controller_password:
 
   
   - name: Terraform Init and Plan
@@ -40,10 +40,10 @@ controller_templates:
     playbook: ee_builder.yml
     execution_environment: ee-aap-builder-stream
     instance_groups: ansible_builder
-    extra_vars:
-      ee_registry_dest: docker.io/brthomps
-      ee_registry_username: r3dact3d
-      ee_registry_password: 
+    extra_vars: 
+      - ee_registry_dest: docker.io/brthomps
+      - ee_registry_username: r3dact3d
+      - ee_registry_password: 
     labels: ansible_job
 
 ...
