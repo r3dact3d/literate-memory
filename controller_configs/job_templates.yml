@@ -45,6 +45,7 @@ controller_templates:
       ee_registry_dest: docker.io/brthomps
       ee_registry_username: r3dact3d
       ee_registry_password: 
+      ah_token:
     labels: ansible_job
 
 ...
