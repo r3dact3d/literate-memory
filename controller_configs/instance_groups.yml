@@ -1,6 +1,5 @@
 ---
 controller_instance_groups:
   - name: ansible_builder
-    credential: AAP Admin
     is_container_group: true
 
