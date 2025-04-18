@@ -46,4 +46,6 @@ collections:
 ![AAP Credential](images/aap_cred.png)
 ## Function
 
+
+
 [Red Hat Validated Collection infra.aap_configuration](https://github.com/redhat-cop/infra.aap_configuration)
