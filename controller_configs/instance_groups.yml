@@ -1,0 +1,7 @@
+---
+controller_instance_groups:
+  - name: ansible_builder
+    credential: AAP Admin
+    is_container_group: true
+    pod_spec_overide:
+      hostUsers: false
