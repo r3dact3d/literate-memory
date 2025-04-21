@@ -29,7 +29,7 @@
       {
         "question_description": "Choose where to push EE/DE",
         "min": 0,
-        "default": "registry.access.redhat.com/ubi9-minimal:latest",
+        "default": "quay.io/brthomps",
         "max": 0,
         "required": true,
         "choices": "docker.io/r3dact3d\nquay.io/brthomps",
@@ -53,7 +53,7 @@
       {
         "question_description": "Registry Username and namespace if needed",
         "min": 0,
-        "default": "quay.io/brthomps",
+        "default": "brthomps",
         "max": 128,
         "required": true,
         "choices": "",
