@@ -1,2 +1,3 @@
 ---
-controller_hostname: "{{ controller_host | default(groups['local'][0]) }}"
+#controller_hostname: "{{ controller_host | default(groups['local'][0]) }}"
+controller_hostname: "{{ lookup('env', 'CONTROLLER_HOST') }}"
