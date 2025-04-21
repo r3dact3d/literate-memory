@@ -26,6 +26,42 @@
             "question_name": "Name of Automation Hub host to pull collections",
             "type": "text"
           },
+          {
+            "question_description": "List of System Packages",
+            "min": 0,
+            "default": "podman,fuse-overlayfs,ansible-builder",
+            "max": 512,
+            "required": true,
+            "choices": "",
+            "new_question": true,
+            "variable": "system_packages",
+            "question_name": "List of System Packages",
+            "type": "text"
+          },
+          {
+            "question_description": "List of Python Packages",
+            "min": 0,
+            "default": "ansible-navigator,pytz,python-dateutil>=2.7.0,awxkit",
+            "max": 512,
+            "required": true,
+            "choices": "",
+            "new_question": true,
+            "variable": "python_packages",
+            "question_name": "List of Python Packages",
+            "type": "text"
+          },
+          {
+            "question_description": "List of Galaxy collections",
+            "min": 0,
+            "default": "awx.aws,infra.aap_configuration",
+            "max": 512,
+            "required": true,
+            "choices": "",
+            "new_question": true,
+            "variable": "galaxy_collections",
+            "question_name": "List of Galaxy Collections",
+            "type": "text"
+          },
       {
         "question_description": "Choose where to push EE/DE",
         "min": 0,
