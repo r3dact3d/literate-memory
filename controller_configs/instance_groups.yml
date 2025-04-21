@@ -2,4 +2,47 @@
 controller_instance_groups:
   - name: ansible_builder
     is_container_group: true
+    pod_spec_override: |
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    io.kubernetes.cri-o.Devices: /dev/fuse,/dev/net/tun
+  namespace: aap
+  labels:
+    ansible_job: ''
+spec:
+  hostUsers: false
+  serviceAccountName: default
+  automountServiceAccountToken: false
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 100
+          podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+                - key: ansible_job
+                  operator: Exists
+            topologyKey: kubernetes.io/hostname
+  containers:
+    - image: quay.io/brthomps/ee-aap-ee-builder:latest
+      name: worker
+      securityContext:
+        capabilities:
+          add:
+            - SETUID
+            - SETGID
+        runAsUser: 1000
+        runAsNonRoot: true
+        allowPrivilegeEscalation: true
+        procMount: Unmasked
+      args:
+        - ansible-runner
+        - worker
+        - '--private-data-dir=/runner'
+      resources:
+        requests:
+          cpu: 250m
+          memory: 100Mi
 
