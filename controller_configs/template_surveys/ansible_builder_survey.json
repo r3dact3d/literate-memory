@@ -41,7 +41,7 @@
       {
         "question_description": "Choose base image",
         "min": 0,
-        "default": "registry.access.redhat.com/ubi9-minimal:latest",
+        "default": "registry.access.redhat.com/ubi9-minimal",
         "max": 0,
         "required": true,
         "choices": "registry.access.redhat.com/ubi9-minimal\ndocker.io/redhat/ubi9\nregistry.fedoraproject.org/fedora",
