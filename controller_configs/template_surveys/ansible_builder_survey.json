@@ -1,0 +1,78 @@
+{
+    "name": "Ansible Builder Survey",
+    "description": "Ansible Builder Survey",
+    "spec": [
+        {
+            "question_description": "Name of Execution or Decision Environment",
+            "min": 5,
+            "default": "ee-fedora-test",
+            "max": 32,
+            "required": true,
+            "choices": "",
+            "new_question": true,
+            "variable": "ee_name",
+            "question_name": "Name of Execution or Decision Environment",
+            "type": "text"
+          },
+          {
+            "question_description": "Name of Automation Hub host to pull collections from",
+            "min": 5,
+            "default": "galaxy.ansible.com",
+            "max": 128,
+            "required": true,
+            "choices": "",
+            "new_question": true,
+            "variable": "ee_ah_host",
+            "question_name": "Name of Automation Hub host to pull collections",
+            "type": "text"
+          },
+      {
+        "question_description": "Choose where to push EE/DE",
+        "min": 0,
+        "default": "registry.access.redhat.com/ubi9-minimal:latest",
+        "max": 0,
+        "required": true,
+        "choices": "docker.io/r3dact3d\nquay.io/brthomps",
+        "new_question": true,
+        "variable": "ee_registry_dest",
+        "question_name": "Choose where to push EE/DE",
+        "type": "multiplechoice"
+      },
+      {
+        "question_description": "Choose base image",
+        "min": 0,
+        "default": "registry.access.redhat.com/ubi9-minimal:latest",
+        "max": 0,
+        "required": true,
+        "choices": "registry.access.redhat.com/ubi9-minimal:latest\ndocker.io/redhat/ubi9:latest\nregistry.fedoraproject.org/fedora:latest",
+        "new_question": true,
+        "variable": "base_image",
+        "question_name": "Choose base image",
+        "type": "multiplechoice"
+      },
+      {
+        "question_description": "Registry Username and namespace if needed",
+        "min": 0,
+        "default": "quay.io/brthomps",
+        "max": 128,
+        "required": true,
+        "choices": "",
+        "new_question": true,
+        "variable": "ee_registry_username",
+        "question_name": "What is the username for the push registry?",
+        "type": "text"
+      },
+      {
+        "question_description": "Registry Password",
+        "min": 5,
+        "default": "",
+        "max": 24,
+        "required": true,
+        "choices": "",
+        "new_question": true,
+        "variable": "ee_registry_password",
+        "question_name": "What is the password for the push registry?",
+        "type": "password"
+      }
+    ]
+  }

@@ -48,4 +48,21 @@ controller_templates:
       ah_token:
     labels: ansible_job
 
+  - name: EE Streamer Survey
+    job_type: run
+    inventory: Local Inventory
+    project: Ansible EE Builder Stream
+    playbook: ee_builder.yml
+    execution_environment: ee-aap-builder-stream
+    instance_groups: ansible_builder
+    ask_variables_on_launch: yes
+    survey_enabled: true
+    survey: "{{ lookup('template', 'controller_configs/template_surveys/ansible_builder_survey.json) | regex_replace('\\n', '') }}"
+    extra_vars: 
+      ee_registry_dest: docker.io/r3dact3d
+      ee_registry_username: r3dact3d
+      ee_registry_password: 
+      ah_token:
+    labels: ansible_job
+
 ...
