@@ -48,4 +48,32 @@ controller_templates:
       ah_token:
     labels: ansible_job
 
+  - name: EE Streamer Survey
+    job_type: run
+    inventory: Local Inventory
+    project: Ansible EE Builder Stream
+    playbook: ee_builder_survey.yml
+    execution_environment: ee-aap-builder-stream
+    instance_groups: ansible_builder
+    ask_variables_on_launch: yes
+    survey_enabled: true
+    survey: "{{ lookup('template', 'controller_configs/template_surveys/ansible_builder_survey.json') | regex_replace('\\n', '') }}"
+    extra_vars: 
+      ah_token:
+    labels: ansible_job
+
+  - name: EE Streamer Webhook
+    job_type: run
+    inventory: Local Inventory
+    project: Ansible EE Builder Stream
+    playbook: ee_builder_webhook.yml
+    execution_environment: ee-aap-builder-stream
+    instance_groups: ansible_builder
+    extra_vars: 
+      ee_registry_dest: 
+      ee_registry_username: 
+      ee_registry_password: 
+      ah_token:
+    labels: ansible_job
+
 ...

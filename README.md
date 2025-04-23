@@ -53,11 +53,11 @@ This credential will provide the Ansible Automation Platform hostname, username,
 
 4. Create a **Project**
 
-[Day2 Configuration As Code Project](images/day2_cac_project.png)
+![Day2 Configuration As Code Project](images/day2_cac_project.png)
 
 5. Create a **Template**
 
 
-[Day 2 CaC Job Template](images/day_cac_template.png)
+![Day 2 CaC Job Template](images/day_cac_template.png)
 
 [Red Hat Validated Collection infra.aap_configuration](https://github.com/redhat-cop/infra.aap_configuration)
