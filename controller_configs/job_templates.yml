@@ -72,6 +72,7 @@ controller_templates:
     playbook: ee_builder_webhook.yml
     execution_environment: ee-aap-builder-stream
     instance_groups: ansible_builder
+    scm_branch: webhook-branch
     extra_vars: 
       ah_token:
     labels: ansible_job

@@ -43,4 +43,5 @@ controller_projects:
     scm_delete_on_update: 'no'
     scm_type: git
     scm_update_on_launch: 'no'
+    allow_override: 'yes'
     scm_url: https://github.com/r3dact3d/Ansible-Execution-Environment-Stream.git
