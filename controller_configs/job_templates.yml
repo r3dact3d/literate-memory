@@ -34,6 +34,8 @@ controller_templates:
 ## Ansible Builder Stream ##
 ############################
   - name: EE Streamer
+    credentials:
+      - AAP Admin
     job_type: run
     inventory: Local Inventory
     project: Ansible EE Builder Stream
@@ -46,6 +48,8 @@ controller_templates:
     labels: ansible_job
 
   - name: EE Streamer Survey
+    credentials:
+      - AAP Admin
     job_type: run
     inventory: Local Inventory
     project: Ansible EE Builder Stream
@@ -60,6 +64,8 @@ controller_templates:
     labels: ansible_job
 
   - name: EE Streamer Webhook
+    credentials:
+      - AAP Admin
     job_type: run
     inventory: Local Inventory
     project: Ansible EE Builder Stream
