@@ -34,6 +34,8 @@ controller_templates:
 ## Ansible Builder Stream ##
 ############################
   - name: EE Streamer
+    credentials:
+      - AAP Admin
     job_type: run
     inventory: Local Inventory
     project: Ansible EE Builder Stream
@@ -41,14 +43,13 @@ controller_templates:
     execution_environment: ee-aap-builder-stream
     instance_groups: ansible_builder
     ask_variables_on_launch: yes
-    extra_vars: 
-      ee_registry_dest: docker.io/r3dact3d
-      ee_registry_username: r3dact3d
-      ee_registry_password: 
+    extra_vars:  
       ah_token:
     labels: ansible_job
 
   - name: EE Streamer Survey
+    credentials:
+      - AAP Admin
     job_type: run
     inventory: Local Inventory
     project: Ansible EE Builder Stream
@@ -63,6 +64,8 @@ controller_templates:
     labels: ansible_job
 
   - name: EE Streamer Webhook
+    credentials:
+      - AAP Admin
     job_type: run
     inventory: Local Inventory
     project: Ansible EE Builder Stream
@@ -70,9 +73,6 @@ controller_templates:
     execution_environment: ee-aap-builder-stream
     instance_groups: ansible_builder
     extra_vars: 
-      ee_registry_dest: 
-      ee_registry_username: 
-      ee_registry_password: 
       ah_token:
     labels: ansible_job
 
