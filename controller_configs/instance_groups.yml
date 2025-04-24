@@ -13,7 +13,7 @@ controller_instance_groups:
           ansible_job: ''
       spec:
         hostUsers: false
-        serviceAccountName: default
+        serviceAccountName: automation-job-podman
         automountServiceAccountToken: false
         affinity:
           podAntiAffinity:
