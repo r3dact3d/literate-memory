@@ -6,7 +6,7 @@ controller_inventory_sources:
     inventory: Local Inventory
     execution_environment: Community General EE
     source_project: Blinker Project
-    credential: Proxmox
+    credential: 
     description: created by Ansible controller
     overwrite: true
     update_on_launch: true
