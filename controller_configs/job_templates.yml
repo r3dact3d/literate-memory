@@ -56,7 +56,7 @@ controller_templates:
     playbook: ee_builder_survey.yml
     execution_environment: ee-aap-builder-stream
     instance_groups: ansible_builder
-    ask_variables_on_launch: yes
+    ask_variables_on_launch: no
     survey_enabled: true
     survey: "{{ lookup('template', 'controller_configs/template_surveys/ansible_builder_survey.json') | regex_replace('\\n', '') }}"
     extra_vars: 
