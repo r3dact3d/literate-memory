@@ -76,9 +76,9 @@
       },
       {
         "question_description": "Choose base image version",
-        "min": 0,
+        "min": 5,
         "default": "latest",
-        "max": 0,
+        "max": 12,
         "required": true,
         "choices": "",
         "new_question": true,
