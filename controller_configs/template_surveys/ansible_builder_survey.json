@@ -41,7 +41,7 @@
           {
             "question_description": "List of Python Packages",
             "min": 0,
-            "default": "ansible-navigator,pytz,python-dateutil>=2.7.0,awxkit",
+            "default": "ansible-navigator,pytz,python-dateutil,awxkit",
             "max": 512,
             "required": true,
             "choices": "",
@@ -85,30 +85,6 @@
         "variable": "ee_version",
         "question_name": "Choose base image version or tag",
         "type": "text"
-      },
-      {
-        "question_description": "Registry Username and namespace if needed",
-        "min": 0,
-        "default": "brthomps",
-        "max": 128,
-        "required": true,
-        "choices": "",
-        "new_question": true,
-        "variable": "ee_registry_username",
-        "question_name": "What is the username for the push registry?",
-        "type": "text"
-      },
-      {
-        "question_description": "Registry Password",
-        "min": 5,
-        "default": "",
-        "max": 24,
-        "required": true,
-        "choices": "",
-        "new_question": true,
-        "variable": "ee_registry_password",
-        "question_name": "What is the password for the push registry?",
-        "type": "password"
       }
     ]
   }
