@@ -15,18 +15,6 @@
             "type": "text"
           },
           {
-            "question_description": "Name of Automation Hub host to pull collections from",
-            "min": 5,
-            "default": "galaxy.ansible.com",
-            "max": 128,
-            "required": true,
-            "choices": "",
-            "new_question": true,
-            "variable": "ee_ah_host",
-            "question_name": "Name of Automation Hub host to pull collections",
-            "type": "text"
-          },
-          {
             "question_description": "List of System Packages",
             "min": 0,
             "default": "podman,fuse-overlayfs,ansible-builder",
