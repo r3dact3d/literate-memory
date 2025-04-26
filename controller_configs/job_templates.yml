@@ -42,7 +42,7 @@ controller_templates:
     playbook: ee_builder.yml
     execution_environment: ee-aap-builder-stream
     instance_groups: ansible_builder
-    ask_variables_on_launch: yes
+    ask_variables_on_launch: no
     extra_vars:  
       ah_token:
     labels: ansible_job
