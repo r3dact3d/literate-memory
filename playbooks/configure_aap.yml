@@ -12,7 +12,7 @@
   tasks:
     - name: Include vars from configs directory
       ansible.builtin.include_vars:
-        dir: ./controller_configs
+        dir: ../controller_configs
         ignore_unknown_extensions: True
         ignore_files:
           - credentials.yml
