@@ -37,7 +37,7 @@ controller_templates:
     credentials:
       - AAP Admin
     job_type: run
-    inventory: Local Inventory
+    inventory: Demo Inventory
     project: Ansible EE Builder Stream
     playbook: ee_builder.yml
     execution_environment: ee-aap-builder-stream
@@ -51,7 +51,7 @@ controller_templates:
     credentials:
       - AAP Admin
     job_type: run
-    inventory: Local Inventory
+    inventory: Demo Inventory
     project: Ansible EE Builder Stream
     playbook: ee_builder_survey.yml
     execution_environment: ee-aap-builder-stream

@@ -3,3 +3,5 @@ controller_inventories:
   - name: Local Inventory
     organization: Blinker19
     description: created by Ansible Config as Code
+  - name: Demo Inventory
+    organization: Launch
