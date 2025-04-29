@@ -14,11 +14,15 @@
         extensions: ["yml"]
       tags:
         - always
-      
-    - name: Add organization
-      ansible.builtin.include_role:
-        name: infra.aap_configuration.gateway_organizations
 
-    - name: Add teams
+    - name: Dispatch all roles
       ansible.builtin.include_role:
-        name: infra.aap_configuration.gateway_teams
+        name: infra.aap_configuration.dispatch
+
+#    - name: Add organization
+#      ansible.builtin.include_role:
+#        name: infra.aap_configuration.gateway_organizations
+
+#    - name: Add teams
+#      ansible.builtin.include_role:
+#        name: infra.aap_configuration.gateway_teams
