@@ -4,3 +4,4 @@ aap_organizations:
     description: Organization for HomeLab team
   - name: OSBC Honey
     description: Organization for Operations team
+  - name: Launch

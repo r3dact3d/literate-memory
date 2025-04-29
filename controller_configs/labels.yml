@@ -1,4 +1,4 @@
 ---
 controller_labels:
   - name: ansible_job
-    organization: Default
+    organization: Launch
