@@ -1,0 +1,10 @@
+---
+platform_state: exists
+users_default_password: changeme
+aap_user_accounts:
+  - username: ops_user
+    email: ops_user@blinker19.com
+    organization: Blinker19
+  - username: honey_poster
+    email: honey_poster@honey.com
+    organization: OSBC Honey
