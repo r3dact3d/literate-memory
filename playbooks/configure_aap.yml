@@ -14,6 +14,8 @@
       ansible.builtin.include_vars:
         dir: ../controller_configs
         ignore_unknown_extensions: True
+        ignore_files:
+          - credentials.yml
         extensions: ["yml"]
       tags:
         - always
