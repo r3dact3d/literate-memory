@@ -5,3 +5,4 @@ aap_organizations:
   - name: OSBC Honey
     description: Organization for Operations team
   - name: Launch
+    description: Launch Community
