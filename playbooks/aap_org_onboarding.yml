@@ -10,7 +10,7 @@
   tasks:
     - name: Include vars from configs directory
       ansible.builtin.include_vars:
-        dir: ./../gateway_configs
+        dir: ../gateway_configs
         extensions: ["yml"]
       tags:
         - always
