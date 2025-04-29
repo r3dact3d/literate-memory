@@ -45,7 +45,7 @@ controller_templates:
     ask_variables_on_launch: no
     extra_vars:  
       ah_token:
-    labels: ansible_job
+    labels: builder_job
 
   - name: EE Streamer Survey
     credentials:
@@ -61,20 +61,5 @@ controller_templates:
     survey: "{{ lookup('template', '../controller_configs/template_surveys/ansible_builder_survey.json') | regex_replace('\\n', '') }}"
     extra_vars: 
       ah_token:
-    labels: ansible_job
-
-  - name: EE Streamer Webhook
-    credentials:
-      - AAP Admin
-    job_type: run
-    inventory: Local Inventory
-    project: Ansible EE Builder Stream
-    playbook: ee_builder_webhook.yml
-    execution_environment: ee-aap-builder-stream
-    instance_groups: ansible_builder
-    scm_branch: webhook-branch
-    extra_vars: 
-      ah_token:
-    labels: ansible_job
-
+    labels: builder_job
 ...
