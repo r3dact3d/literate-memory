@@ -1,6 +1,6 @@
 ---
 - name: Playbook to configure ansible controller post installation
-  hosts: all
+  hosts: local
   vars:
     aap_hostname: "{{ lookup('env', 'CONTROLLER_HOST') }}"
     aap_validate_certs: "{{ lookup('env', 'CONTROLLER_VERIFY_SSL') | default(false) | bool }}"
@@ -9,7 +9,5 @@
   collections:
     - infra.aap_configuration
 
-  tasks:
-    - name: Call dispatch role
-      ansible.builtin.include_role:
-        name: infra.aap_configuration.dispatch
+  roles:
+    - infra.aap_configuration.dispatch
