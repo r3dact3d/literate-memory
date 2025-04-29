@@ -58,7 +58,7 @@ controller_templates:
     instance_groups: ansible_builder
     ask_variables_on_launch: no
     survey_enabled: true
-    survey: "{{ lookup('template', 'controller_configs/template_surveys/ansible_builder_survey.json') | regex_replace('\\n', '') }}"
+    survey: "{{ lookup('template', '../controller_configs/template_surveys/ansible_builder_survey.json') | regex_replace('\\n', '') }}"
     extra_vars: 
       ah_token:
     labels: ansible_job
