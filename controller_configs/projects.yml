@@ -48,5 +48,5 @@ controller_projects:
 
   - name: Insights Compliance
     organization: Blinker19
-    scm_type: Insights
+    scm_type: insights
     credential: Insights - Blinker19
