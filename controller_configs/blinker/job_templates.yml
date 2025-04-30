@@ -1,0 +1,8 @@
+---
+controller_templates:
+  - name: Insights Remediation
+    job_type: check
+    inventory: Local Inventory
+    project: Insights Compliance
+    labels: blinker19
+    playbook: 1system95issues.yml
