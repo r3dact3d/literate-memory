@@ -7,4 +7,4 @@ controller_execution_environments:
   - name: Community General EE 
     image: docker.io/r3dact3d/ubi9-community-general:latest
   - name: Community Red Hat Insights EE
-...
+    image: quay.io/brthomps/ee_fedora_redhatinsights:latest
