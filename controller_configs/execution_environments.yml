@@ -2,8 +2,9 @@
 controller_execution_environments:
   - name: "ee-aap-builder-stream"
     image: quay.io/brthomps/ee-aap-ee-builder:latest
-  - name: "terraform-ee-base"
+  - name: Community Terraform EE
     image: docker.io/r3dact3d/terraform-ee:1.0.2
   - name: Community General EE 
     image: docker.io/r3dact3d/ubi9-community-general:latest
+  - name: Community Red Hat Insights EE
 ...
