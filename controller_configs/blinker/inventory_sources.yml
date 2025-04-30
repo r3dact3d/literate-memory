@@ -19,6 +19,6 @@ controller_inventory_sources:
     overwrite: true
     update_on_launch: true
     update_cache_timeout: 0
-    source_vars: |
-      get_patches: true
-      get_tags: true
+    source_vars:
+      - get_patches: true
+      - get_tags: true
