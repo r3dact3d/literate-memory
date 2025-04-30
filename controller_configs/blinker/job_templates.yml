@@ -4,4 +4,4 @@ controller_templates:
     job_type: check
     inventory: Local Inventory
     project: Insights Compliance
-    playbook: 1system95issues.yml
+    playbook: 1system95issues
