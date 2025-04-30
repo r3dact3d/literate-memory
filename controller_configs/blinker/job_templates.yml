@@ -4,5 +4,4 @@ controller_templates:
     job_type: check
     inventory: Local Inventory
     project: Insights Compliance
-    labels: blinker19
-    playbook:
+    playbook: 1system95issues.yml
