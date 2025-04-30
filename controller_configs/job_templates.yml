@@ -18,7 +18,7 @@ controller_templates:
     inventory: Local Inventory
     project: Urban Terraform
     playbook: playbooks/tf_init_plan.yml
-    execution_environment: terraform-ee-base
+    execution_environment: Community Terraform EE
     use_fact_cache: yes
     extra_vars: ''
   - name: Terraform Load and Apply
@@ -26,7 +26,7 @@ controller_templates:
     inventory: Local Inventory
     project: Urban Terraform
     playbook: playbooks/tf_apply_plan.yml
-    execution_environment: terraform-ee-base
+    execution_environment: Community Terraform EE
     extra_vars: ''
     use_fact_cache: yes
   
@@ -40,7 +40,7 @@ controller_templates:
     inventory: Demo Inventory
     project: Ansible EE Builder Stream
     playbook: ee_builder.yml
-    execution_environment: ee-aap-builder-stream
+    execution_environment: AAP Builder Stream EE
     instance_groups: ansible_builder
     ask_variables_on_launch: no
     extra_vars:  
@@ -54,7 +54,7 @@ controller_templates:
     inventory: Demo Inventory
     project: Ansible EE Builder Stream
     playbook: ee_builder_survey.yml
-    execution_environment: ee-aap-builder-stream
+    execution_environment: AAP Builder Stream EE
     instance_groups: ansible_builder
     ask_variables_on_launch: no
     survey_enabled: true
