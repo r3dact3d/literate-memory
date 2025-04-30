@@ -15,7 +15,6 @@ controller_inventory_sources:
     source: insights 
     inventory: Local Inventory
     execution_environment:
-    source_project: Insights Compliance
     credentials: Insights - Blinker19
     overwrite: true
     update_on_launch: true
