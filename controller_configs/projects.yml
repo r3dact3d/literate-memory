@@ -45,3 +45,8 @@ controller_projects:
     scm_update_on_launch: 'no'
     allow_override: 'yes'
     scm_url: https://github.com/r3dact3d/Ansible-Execution-Environment-Stream.git
+
+  - name: Insights Compliance
+    organization: Blinker19
+    scm_type: Insights
+    credential: Insights - Blinker19
