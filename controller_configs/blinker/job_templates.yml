@@ -5,4 +5,4 @@ controller_templates:
     inventory: Local Inventory
     project: Insights Compliance
     labels: blinker19
-    playbook: 1system95issues.yml
+    playbook:
