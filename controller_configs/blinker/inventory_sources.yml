@@ -30,8 +30,3 @@ controller_inventory_sources:
 
       # Filter host by tags and create groups from tags
       get_tags: true
-      filter_tags:
-        - insights-client/env=prod
-      keyed_groups:
-        - key: insights_tags['insights-client']
-          prefix: insights
