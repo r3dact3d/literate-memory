@@ -1,6 +1,0 @@
----
-controller_templates:
-  - name: Insights Remediation
-    job_type: check
-    inventory: Local Inventory
-    project: Insights Compliance
