@@ -19,3 +19,19 @@ controller_inventory_sources:
     overwrite: true
     update_on_launch: true
     update_cache_timeout: 0
+    source_vars: |
+      get_patches: true
+      groups: 
+        patching: insights_patching.enabled
+        stale: insights_patching.stale
+        bug_patch: insights_patching.rhba_count > 0
+        security_patch: insights_patching.rhsa_count > 0
+        enhancement_patch: insights_patching.rhea_count > 0
+
+      # Filter host by tags and create groups from tags
+      get_tags: true
+      filter_tags:
+        - insights-client/env=prod
+      keyed_groups:
+        - key: insights_tags['insights-client']
+          prefix: insights
