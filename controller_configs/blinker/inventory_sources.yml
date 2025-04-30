@@ -14,7 +14,7 @@ controller_inventory_sources:
   - name: Red Hat Insights
     source: insights 
     inventory: Local Inventory
-    execution_environment: 'null'
+    execution_environment:
     source_project: Insights Compliance
     credentials: Insights - Blinker19
     overwrite: true
