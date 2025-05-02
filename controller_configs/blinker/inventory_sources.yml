@@ -1,9 +1,12 @@
 ---
 controller_inventory_sources:
+################
+## PROXMOX VE ##
+################
   - name: Proxmox VE
     source: scm
     source_path: inventories/proxmox/proxmox.yml
-    inventory: Local Inventory
+    inventory: Proxmox Inventory
     execution_environment: Community General EE
     source_project: Blinker Project
     credential: Proxmox
@@ -11,6 +14,10 @@ controller_inventory_sources:
     overwrite: true
     update_on_launch: true
     update_cache_timeout: 0
+
+################
+##  Insights  ##
+################
   - name: Red Hat Insights
     source: insights 
     inventory: Local Inventory
