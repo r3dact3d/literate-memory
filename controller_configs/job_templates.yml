@@ -62,4 +62,16 @@ controller_templates:
     extra_vars: 
       ah_token:
     labels: builder_job
-...
+
+############################
+##  Ansible Project Jobs  ##
+############################
+  - name: Get Inventory Groups
+    job_type: run
+    project: Get Controller Stats
+    playbook: random-plays/getControllerStats.yml
+    ask_credentials_on_launch: yes
+    ask_inventory_on_launch: yes
+    ask_variables_on_launch: yes
+
+  
