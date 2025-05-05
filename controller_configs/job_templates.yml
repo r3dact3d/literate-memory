@@ -68,8 +68,8 @@ controller_templates:
 ############################
   - name: Get Inventory Groups
     job_type: run
-    project: Get Controller Stats
-    playbook: random-plays/getControllerStats.yml
+    project: Blinker Project
+    playbook: playbooks/inventory_groups.yml
     ask_credentials_on_launch: yes
     ask_inventory_on_launch: yes
     ask_variables_on_launch: yes
