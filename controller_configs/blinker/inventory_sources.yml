@@ -26,4 +26,13 @@ controller_inventory_sources:
     overwrite: true
     update_on_launch: true
     update_cache_timeout: 0
+    source_vars:
+      get_tags: true
+      get_system_advisories: true
+      groups:
+        os: insights_patching.os
+      ## This compose works because I ran this on the systems
+      ## sudo insights-client --ansible-host `ip address show dynamic |grep 'inet ' | cut -d/ -f1 | awk '{print $2}'`
+      compose:
+        ansible_host: insights_ansible_host
 
