@@ -13,13 +13,14 @@
     - name: Include vars from configs directory
       ansible.builtin.include_vars:
         dir: ../controller_configs
-        ignore_unknown_extensions: True
+        ignore_unknown_extensions: true
         ignore_files:
           - credentials.yml
+          - inventory_sources.yml
         extensions: ["yml"]
       tags:
         - always
-      
+
     - name: Dispatch all roles
       ansible.builtin.include_role:
         name: infra.aap_configuration.dispatch
