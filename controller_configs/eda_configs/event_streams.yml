@@ -1,0 +1,8 @@
+---
+eda_event_streams:
+  - name: "Red Hat Insights"
+    test_mode: True
+    additional_data_headers: ""
+    organization: "Blinker19"
+    credential_name: "Red Hat Insights"
+    event_stream_type: "token"

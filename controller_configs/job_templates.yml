@@ -1,18 +1,54 @@
 ---
 controller_templates:
-  - name: Get Stats JT
+  - name: "Get Stats JT"
+    description: Get AAP Stats
+    organization: "Launch"
+    project: "Get Controller Stats"
+    inventory: "Insights Inventory"
+    playbook: "random-plays/getControllerStats.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
     credentials:
-      - AAP Admin
-    job_type: run
-    inventory: Local Inventory
-    project: Get Controller Stats
-    playbook: random-plays/getControllerStats.yml
-    ask_variables_on_launch: yes
+      - "AAP Admin"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: true
+    ask_inventory_on_launch: true
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
     extra_vars:
-      controller_hostname:
-      controller_password:
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    host_config_key: ""
+    survey_enabled: false
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
 
-  
+
+############################
+## Terraform Job Template ##
+############################
   - name: Terraform Init and Plan
     job_type: run
     inventory: Local Inventory
@@ -21,6 +57,7 @@ controller_templates:
     execution_environment: Community Terraform EE
     use_fact_cache: yes
     extra_vars: ''
+
   - name: Terraform Load and Apply
     job_type: run
     inventory: Local Inventory
@@ -29,7 +66,7 @@ controller_templates:
     execution_environment: Community Terraform EE
     extra_vars: ''
     use_fact_cache: yes
-  
+
 ############################
 ## Ansible Builder Stream ##
 ############################
@@ -74,4 +111,202 @@ controller_templates:
     ask_inventory_on_launch: yes
     ask_variables_on_launch: yes
 
-  
+
+################################
+##  Ansible Resources Export  ##
+################################
+  - name: "Filetree Create"
+    organization: "Launch"
+    project: "Blinker Project"
+    inventory: "Insights Inventory"
+    playbook: "playbooks/filetree_create/filetree_create.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "AAP Admin"
+      - "Punk Machine"
+    labels:
+      - "testing"
+
+  - name: "Filetree Artifact"
+    organization: "Launch"
+    project: "Blinker Project"
+    inventory: "Insights Inventory"
+    playbook: "playbooks/filetree_create/filetree_artifact.yml"
+    scm_branch: ""
+    forks: 0
+    limit: "platform"
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "Punk Machine"
+
+  - name: "Export Import Ansible Controller"
+    organization: "Launch"
+    project: "Blinker Project"
+    inventory: "localhost"
+    playbook: "playbooks/export-import.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "AAP Admin"
+      - "Punk Machine"
+
+
+################################
+##  Proxmox Job Templates     ##
+################################
+  - name: "Proxmox Restart Container"
+    description: !unsafe ''
+    organization: "Launch"
+    project: "Blinker Project"
+    inventory: "localhost"
+    playbook: "playbooks/proxmox/restart_container.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    extra_vars:
+      IP_ADDRESS: 192.168.1.232
+    timeout: 0
+    execution_environment: "Community General EE"
+    host_config_key: ""
+    labels:
+      - "proxmox"
+
+  - name: "Proxmox Node Info"
+    description: !unsafe ''
+    organization: "Launch"
+    project: "Blinker Project"
+    inventory: "localhost"
+    playbook: "playbooks/proxmox/proxmox_node_info.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "Proxmox"
+    timeout: 0
+    execution_environment: "Community General EE"
+    host_config_key: ""
+    labels:
+      - "blinker19"
+
+  - name: "Log Proxmox Node Info"
+    description: !unsafe ''
+    organization: "Launch"
+    project: "Blinker Project"
+    inventory: "Insights Inventory"
+    playbook: "playbooks/proxmox/proxmox_info_artifact.yml"
+    scm_branch: ""
+    forks: 0
+    limit: "data"
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "Punk Machine"
+    timeout: 0
+    execution_environment: "Community General EE"
+    host_config_key: ""
+    labels:
+      - "blinker19"
+
+  - name: "Proxmox VM Info"
+    description: !unsafe ''
+    organization: "Launch"
+    project: "Blinker Project"
+    inventory: "localhost"
+    playbook: "playbooks/proxmox/proxmox_vm_info.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "Proxmox"
+    timeout: 0
+    execution_environment: "Community General EE"
+    host_config_key: ""
+    labels:
+      - "blinker19"
+
+  - name: "Create Proxmox Container"
+    description: !unsafe ''
+    organization: "Launch"
+    project: "Blinker Project"
+    inventory: "localhost"
+    playbook: "playbooks/proxmox/proxmox_create_container.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "Proxmox"
+    execution_environment: "Community General EE"
+    host_config_key: ""
+    labels:
+      - "blinker19"
+
+  - name: "Log Proxmox VMs Info"
+    description: !unsafe ''
+    organization: "Launch"
+    project: "Blinker Project"
+    inventory: "localhost"
+    playbook: "playbooks/proxmox/proxmox_vm_info.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "Proxmox"
+    execution_environment: "Community General EE"
+    host_config_key: ""
+    labels:
+      - "proxmox"
+
+  - name: "Get New Container Info"
+    description: !unsafe ''
+    organization: "Launch"
+    project: "Blinker Project"
+    inventory: "localhost"
+    playbook: "playbooks/proxmox/proxmox_get_container_info.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "Proxmox"
+    execution_environment: "Community General EE"
+    host_config_key: ""
+    labels:
+      - "proxmox"

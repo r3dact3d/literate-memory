@@ -1,0 +1,11 @@
+---
+controller_inventories:
+  - name: "Proxmox Inventory"
+    description: !unsafe ''
+    organization: "Blinker19"
+    prevent_instance_group_fallback: False
+
+  - name: "Insights Inventory"
+    description: !unsafe 'created by Ansible Config as Code'
+    organization: "Launch"
+    prevent_instance_group_fallback: False

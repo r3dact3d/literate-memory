@@ -44,3 +44,273 @@ controller_workflows:
     notification_templates_success: []
     notification_templates_error: []
     notification_templates_approvals: []
+
+  - name: "Get Proxmox Info WT"
+    description: !unsafe ''
+    organization: "Blinker19"
+    simplified_workflow_nodes:
+      - identifier: "Log Proxmox Node Info"
+        workflow_job_template: "Get Proxmox Info WT"
+        unified_job_template: "Log Proxmox Node Info"
+        limit: ""
+        organization: "Blinker19"
+        all_parents_must_converge: "False"
+      - identifier: "Get Proxmox Node Info"
+        workflow_job_template: "Get Proxmox Info WT"
+        unified_job_template: "Proxmox Node Info"
+        limit: ""
+        organization: "Blinker19"
+        all_parents_must_converge: "False"
+        success_nodes:
+          - "Log Proxmox Node Info"
+          - "Get Proxmox VM Info"
+      - identifier: "Log Proxmox VM Info"
+        workflow_job_template: "Get Proxmox Info WT"
+        unified_job_template: "Log Proxmox VMs Info"
+        limit: ""
+        organization: "Blinker19"
+        all_parents_must_converge: "False"
+      - identifier: "Get Proxmox VM Info"
+        workflow_job_template: "Get Proxmox Info WT"
+        unified_job_template: "Proxmox VM Info"
+        limit: ""
+        organization: "Blinker19"
+        all_parents_must_converge: "False"
+        success_nodes:
+          - "Log Proxmox VM Info"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    labels:
+      - "proxmox"
+    survey_enabled: false
+    survey_spec:
+      name: ""
+      spec:
+        - max: 128
+          min: 0
+          type: text
+          required: True
+          variable: ct_hostname
+          new_question: True
+          question_name: !unsafe "Enter new container hostname"
+        - max: 128
+          min: 0
+          type: password
+          required: True
+          variable: host_password
+          new_question: True
+          question_name: !unsafe "Enter new container password"
+      description: ""
+
+  - name: "Create Proxmox Container WT"
+    description: !unsafe ''
+    organization: "Blinker19"
+    simplified_workflow_nodes:
+      - identifier: "Get Proxmox Node Info"
+        workflow_job_template: "Create Proxmox Container WT"
+        unified_job_template: "Proxmox Node Info"
+        limit: ""
+        organization: "Blinker19"
+        all_parents_must_converge: "False"
+        success_nodes:
+          - "Create Container"
+      - identifier: "Get Proxmox Container Info"
+        workflow_job_template: "Create Proxmox Container WT"
+        unified_job_template: "Get New Container Info"
+        limit: ""
+        organization: "Blinker19"
+        all_parents_must_converge: "False"
+      - identifier: "Create Container"
+        workflow_job_template: "Create Proxmox Container WT"
+        unified_job_template: "Create Proxmox Container"
+        limit: ""
+        organization: "Blinker19"
+        all_parents_must_converge: "False"
+        success_nodes:
+          - "Sync Proxmox Inventory"
+          - "Get Proxmox Container Info"
+      - identifier: "Sync Proxmox Inventory"
+        workflow_job_template: "Create Proxmox Container WT"
+        unified_job_template: "Proxmox VE"
+        limit: ""
+        organization: "Blinker19"
+        all_parents_must_converge: "False"
+        success_nodes:
+          - "f3b7776b-7b0f-41a0-8621-254f157fad5b"
+      - identifier: "f3b7776b-7b0f-41a0-8621-254f157fad5b"
+        inventory: "Proxmox Inventory"
+        workflow_job_template: "Create Proxmox Container WT"
+        unified_job_template: "Get Inventory Groups"
+        limit: ""
+        organization: "Blinker19"
+        all_parents_must_converge: "False"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    labels:
+      - "proxmox"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - fedora-41-default_20241118_amd64.tar.xz
+            - ubuntu-24.04-standard_24.04-2_amd64.tar.zst
+          default: !unsafe "fedora-41-default_20241118_amd64.tar.xz"
+          required: True
+          variable: ct_ostemplate
+          new_question: True
+          question_name: !unsafe "Select Container OS "
+        - max: 128
+          min: 0
+          type: text
+          required: True
+          variable: ct_hostname
+          new_question: True
+          question_name: !unsafe "Enter the Container Hostname"
+        - max: 128
+          min: 0
+          type: password
+          required: True
+          variable: host_password
+          new_question: True
+          question_name: !unsafe "Enter the Container Password"
+      description: ""
+
+  - name: "Urban Terraform Workflow"
+    description: !unsafe 'Terraform Collection Workflow'
+    organization: "Launch"
+    simplified_workflow_nodes:
+      - identifier: "Init and Plan"
+        workflow_job_template: "Urban Terraform Workflow"
+        unified_job_template: "Terraform Init and Plan"
+        limit: ""
+        organization: "Launch"
+        all_parents_must_converge: "False"
+        success_nodes:
+          - "Plan Review"
+      - identifier: "Plan Review"
+        workflow_job_template: "Urban Terraform Workflow"
+        unified_job_template: "Plan Review Node"
+        limit: ""
+        organization: "Launch"
+        all_parents_must_converge: "False"
+        success_nodes:
+          - "Load and Apply"
+      - identifier: "Load and Apply"
+        workflow_job_template: "Urban Terraform Workflow"
+        unified_job_template: "Terraform Load and Apply"
+        limit: ""
+        organization: "Launch"
+        all_parents_must_converge: "False"
+    ask_variables_on_launch: "True"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    survey_enabled: true
+    survey_spec:
+      name: "Terraform Survey"
+      spec:
+        - max: 128
+          min: 0
+          type: text
+          default: !unsafe "https://github.com/r3dact3d/urban-terraform"
+          required: True
+          variable: git_url_tf
+          new_question: True
+          question_name: !unsafe "What is the Git url that contains Terraform Code?"
+        - max: 0
+          min: 0
+          type: multiplechoice
+          choices:
+            - u
+            - s
+            - -
+            - e
+            - a
+            - s
+            - t
+            - -
+            - 1
+            - 
+            - u
+            - s
+            - -
+            - e
+            - a
+            - s
+            - t
+            - -
+            - 2
+            - 
+            - u
+            - s
+            - -
+            - w
+            - e
+            - s
+            - t
+            - -
+            - 1
+          default: !unsafe "us-east-2"
+          required: True
+          variable: tf_region
+          new_question: True
+          question_name: !unsafe "What AWS region for S3 bucket Backend Config?"
+        - max: 128
+          min: 0
+          type: text
+          default: !unsafe "tfstate-bucket-blinker19"
+          required: True
+          variable: tf_s3_bucket
+          new_question: True
+          question_name: !unsafe "What is the name of the S3 bucket in AWS for Terraform Backend config?"
+      description: "Terrafrom Survey"
+
+  - name: "Filetree Workflow (WT)"
+    description: !unsafe ''
+    organization: "Launch"
+    simplified_workflow_nodes:
+      - identifier: "edef2b07-9bb8-4192-90df-a17e0e7d1994"
+        workflow_job_template: "Filetree Workflow (WT)"
+        unified_job_template: "Filetree Create"
+        limit: ""
+        organization: "Launch"
+        all_parents_must_converge: "False"
+        success_nodes:
+          - "f390e88c-e4e3-4174-84a2-88199e43bd05"
+      - identifier: "f390e88c-e4e3-4174-84a2-88199e43bd05"
+        workflow_job_template: "Filetree Workflow (WT)"
+        unified_job_template: "Filetree Artifact"
+        limit: ""
+        organization: "Launch"
+        all_parents_must_converge: "False"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    labels:
+      - "testing"
+    survey_enabled: false

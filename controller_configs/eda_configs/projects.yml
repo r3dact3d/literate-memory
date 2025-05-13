@@ -1,0 +1,8 @@
+---
+eda_projects:
+  - name: "Ansible Project"
+    description: ""
+    organization: "2"
+    scm_type: "git"
+    scm_branch: "development"
+    scm_refspec: ""

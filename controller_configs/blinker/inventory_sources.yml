@@ -4,6 +4,7 @@ controller_inventory_sources:
 ## PROXMOX VE ##
 ################
   - name: Proxmox VE
+    organization: Blinker19
     source: scm
     source_path: inventories/proxmox/proxmox.yml
     inventory: Proxmox Inventory
@@ -19,20 +20,23 @@ controller_inventory_sources:
 ##  Insights  ##
 ################
   - name: Red Hat Insights
+    organization: Blinker19
     source: insights 
-    inventory: Local Inventory
-    execution_environment:
-    credential: Insights - Blinker19
-    overwrite: true
-    update_on_launch: true
-    update_cache_timeout: 0
+    limit: ""
+    source_path: ""
     source_vars:
       get_tags: true
       get_system_advisories: true
       groups:
-        os: insights_patching.os
-      ## This compose works because I ran this on the systems
-      ## sudo insights-client --ansible-host `ip address show dynamic |grep 'inet ' | cut -d/ -f1 | awk '{print $2}'`
+        patch_bugs: insights_patching.rhba_count > 0
+        patch_enhancements: insights_patching.rhea_count > 0
+        patch_security: insights_patching.rhsa_count > 0
+      selection: none
       compose:
         ansible_host: insights_ansible_host
+    inventory: "Insights Inventory"
+    update_on_launch: "False"
+    overwrite: "True"
+    credential: "Insights - Blinker19"
+
 

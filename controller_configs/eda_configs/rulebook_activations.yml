@@ -1,0 +1,18 @@
+---
+eda_rulebook_activations:
+  - name: "Blinker19 Critical Services"
+    description: ""
+    is_enabled: "True"
+    status: "running"
+    rulebook_name: "url_check_critical.yml"
+    organization_name: "Default"
+    project_name: "Ansible Project"
+    decision_environment: "Default Decision Environment"
+  - name: "Blinker19 Internal Services"
+    description: ""
+    is_enabled: "True"
+    status: "running"
+    rulebook_name: "url_check_internal.yml"
+    organization_name: "Default"
+    project_name: "Ansible Project"
+    decision_environment: "Default Decision Environment"

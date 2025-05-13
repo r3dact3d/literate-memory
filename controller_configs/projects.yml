@@ -27,15 +27,6 @@ controller_projects:
     scm_update_on_launch: 'no'
     scm_url: https://github.com/r3dact3d/AnsibleProject.git
 
-  - name: Use Cases
-    organization: Launch
-    scm_branch: main
-    scm_clean: 'no'
-    scm_delete_on_update: 'no'
-    scm_type: git
-    scm_update_on_launch: 'no'
-    scm_url: https://github.com/redhat-developer-demos/Ansible-use-cases.git
-
   - name: Ansible EE Builder Stream
     organization: Launch
     scm_branch: working
