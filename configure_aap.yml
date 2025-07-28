@@ -6,8 +6,6 @@
     aap_validate_certs: "{{ lookup('env', 'CONTROLLER_VERIFY_SSL') | default(false) | bool }}"
     aap_username: "{{ lookup('env', 'CONTROLLER_USERNAME') }}"
     aap_password: "{{ lookup('env', 'CONTROLLER_PASSWORD') }}"
-  collections:
-    - infra.aap_configuration
 
   tasks:
     - name: Include vars from configs directory
